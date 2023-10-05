@@ -14,7 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class HomePage extends AppCompatActivity {
+public class  HomePage extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 

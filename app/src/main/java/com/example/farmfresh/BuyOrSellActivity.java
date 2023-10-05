@@ -8,7 +8,7 @@ import android.view.View;
 
 public class BuyOrSellActivity extends AppCompatActivity {
 
-    @Override
+    @Override    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_or_sell);
@@ -27,4 +27,6 @@ public class BuyOrSellActivity extends AppCompatActivity {
         intent.putExtra("mode", "seller");
         startActivity(intent);
     }
+
+
 }

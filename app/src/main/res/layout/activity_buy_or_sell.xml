@@ -11,7 +11,7 @@
         android:id="@+id/buySellPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you ..."
+        android:text="@string/are_you"
         android:textSize="13pt"
         android:textColor="#3A3A3A"
         android:fontFamily="@font/acaslonpro_bold"
@@ -54,14 +54,14 @@
 
     <Button
         android:id="@+id/backArrow"
-        android:layout_width="100px"
-        android:layout_height="100px"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/back_arrow"
         android:onClick="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
