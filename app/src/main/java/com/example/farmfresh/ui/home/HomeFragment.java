@@ -1,6 +1,6 @@
 package com.example.farmfresh.ui.home;
 
-import android.content.Intent;
+import  android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -12,6 +12,8 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -36,19 +38,10 @@ public class HomeFragment extends Fragment {
 
     private final int DATA_SIZE = 9;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_home, container, false);
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-        float density = dm.density;
-        int ll_width = (int) ((100+5) * density * DATA_SIZE);
-        RelativeLayout.LayoutParams params = new RelativeLayout
-                .LayoutParams(ll_width, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        GridView gv = root.findViewById(R.id.gv);
-        gv.setLayoutParams(params);
-        gv.setNumColumns(DATA_SIZE);
+        GridLayout gridLayout = root.findViewById(R.id.gridLayout);
+        gridLayout.setColumnCount(2); // Set the number of columns to 2 for a vertical layout
         getData();
         ListAdapter adapter = new SimpleAdapter(
                 root.getContext(),
@@ -57,20 +50,28 @@ public class HomeFragment extends Fragment {
                 new String[]{"itemImage","itemName"},
                 new int[]{R.id.itemImage,R.id.itemName});
 
-        gv.setAdapter(adapter);
+        for (int i = 0; i < DATA_SIZE; i++) {
+            View itemView = adapter.getView(i, null, gridLayout);
+            GridLayout.Spec rowSpec = GridLayout.spec(i / 2, 1); // Calculate the row
+            GridLayout.Spec colSpec = GridLayout.spec(i % 2, 1); // Calculate the column
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams(rowSpec, colSpec);
+            itemView.setLayoutParams(params);
+            gridLayout.addView(itemView);
 
-        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Category category = Category.parseString(cateKeys[position]);
-                Intent intent = new Intent(root.getContext(), CategoryView.class);
-                intent.putExtra("category", category.toString());
-                root.getContext().startActivity(intent);
-            }
-        });
-
+            final int position = i;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Category category = Category.parseString(cateKeys[position]);
+                    Intent intent = new Intent(root.getContext(), CategoryView.class);
+                    intent.putExtra("category", category.toString());
+                    root.getContext().startActivity(intent);
+                }
+            });
+        }
         return root;
     }
+
 
     private void getData() {
         list = new ArrayList<HashMap<String, Object>>();

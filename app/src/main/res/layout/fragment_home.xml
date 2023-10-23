@@ -19,28 +19,40 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.02" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="385dp"
-        android:layout_height="136dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
-        <RelativeLayout android:id="@+id/ll_horizontalscrollview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <GridView
-                android:id="@+id/gv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:numColumns="auto_fit"
-                android:horizontalSpacing="10dp"
-                />
-        </RelativeLayout>
-    </HorizontalScrollView>
+
+        <!-- Image 1 with margins -->
+
+        <!-- Image 2 with margins -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_margin="8dp"
+            android:src="@drawable/fruit" />
+
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@drawable/vegetable" />
+
+        <!-- Add more images with margins as needed -->
+
+    </GridLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

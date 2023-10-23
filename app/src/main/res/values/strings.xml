@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FarmFresh</string>
+    <string name="app_name">EcoFarms</string>
     <string-array name="cityList">
         <item>Select a city</item>
         <item>Calgary, Alberta</item>
@@ -27,16 +27,15 @@
         <item>Veggies</item>
         <item>Protein</item>
         <item>Dairy</item>
-        <item>Sweets</item>
+        <item>Cabohydrates</item>
         <item>Grains</item>
         <item>Plants</item>
-        <item>Jewelry</item>
         <item>Others</item>
     </string-array>
     <string name="title_activity_home_page">HomePage</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Farm Fresh</string>
+    <string name="nav_header_title">EcoFarms</string>
     <!--    <string name="nav_header_subtitle">android.studio@android.com</string>-->
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
